@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#060913" />
+  <title>{% block title %}Pablo D V{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#060913; --text:#eff4ff; --muted:#a8b4d0; --line:rgba(255,255,255,.10); --accent:#7bdba4; --accent2:#7ea8ff; --accent3:#f4c15d; --panel:rgba(16,24,42,.72); --radius:28px; --radius-sm:18px; --shadow:0 30px 80px rgba(0,0,0,.42); --max:1180px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); font-family:'Space Grotesk',sans-serif; overflow-x:hidden; background: radial-gradient(circle at top left, rgba(126,168,255,.16), transparent 28%), radial-gradient(circle at 80% 0%, rgba(123,219,164,.12), transparent 24%), linear-gradient(180deg, var(--bg) 0%, #070d19 45%, #05070e 100%); }
+    body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.45; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size:100% 44px, 44px 100%; mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 78%); }
+    a { color:inherit; text-decoration:none; }
+    .wrap { position:relative; z-index:1; }
+    .container { width:min(var(--max), calc(100% - 2rem)); margin:0 auto; }
+    .nav { position:sticky; top:0; z-index:10; backdrop-filter:blur(18px); background:rgba(6,9,19,.72); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.95rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.75rem; font-weight:700; letter-spacing:.02em; }
+    .mark { width:2.4rem; height:2.4rem; border-radius:15px; display:grid; place-items:center; background: linear-gradient(135deg, rgba(126,168,255,.22), rgba(123,219,164,.18)); border:1px solid rgba(255,255,255,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+    .links { display:flex; gap:1.1rem; flex-wrap:wrap; }
+    .links a { color:var(--muted); font-size:.95rem; }
+    .links a:hover { color:var(--text); }
+    main { padding-bottom:2rem; }
+    .hero { padding:5rem 0 2.5rem; }
+    .hero-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:1.4rem; align-items:stretch; }
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); box-shadow:var(--shadow); }
+    .hero-main { padding:2rem; position:relative; overflow:hidden; }
+    .hero-main::after { content:''; position:absolute; right:-6rem; bottom:-7rem; width:18rem; height:18rem; background: radial-gradient(circle, rgba(126,168,255,.22), transparent 68%); filter:blur(8px); }
+    .eyebrow { display:inline-flex; align-items:center; gap:.55rem; color:var(--accent); letter-spacing:.16em; text-transform:uppercase; font-size:.82rem; }
+    .eyebrow::before { content:''; width:.55rem; height:.55rem; border-radius:99px; background:var(--accent); box-shadow:0 0 18px rgba(123,219,164,.5); }
+    h1 { margin:.95rem 0 1rem; font-family:'Fraunces',serif; font-size:clamp(3rem,7vw,6.6rem); line-height:.92; letter-spacing:-.05em; }
+    .lead { max-width:44rem; margin:0 0 1.5rem; color:var(--muted); font-size:1.05rem; line-height:1.8; }
+    .actions { display:flex; gap:.8rem; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 1.1rem; border-radius:999px; font-weight:600; border:1px solid rgba(255,255,255,.12); transition:transform .18s ease, background .18s ease, border-color .18s ease; }
+    .btn:hover { transform:translateY(-1px); }
+    .btn-primary { background:linear-gradient(135deg, rgba(123,219,164,.94), rgba(126,168,255,.92)); color:#07111b; border-color:transparent; }
+    .btn-secondary { background:rgba(255,255,255,.03); color:var(--text); }
+    .side { display:grid; gap:1rem; }
+    .mini { padding:1.2rem; background:var(--panel); border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); }
+    .mini-title { margin:0 0 .35rem; color:var(--muted); font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; }
+    .mini-big { margin:0; font-family:'Fraunces',serif; font-size:1.7rem; letter-spacing:-.04em; }
+    .mini-copy { margin:.55rem 0 0; color:var(--muted); line-height:1.65; }
+    .mini-list { list-style:none; margin:0; padding:0; display:grid; gap:.85rem; }
+    .mini-list li { display:flex; justify-content:space-between; gap:1rem; padding-bottom:.85rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .mini-list li:last-child { border-bottom:0; padding-bottom:0; }
+    .mini-list span:last-child { color:var(--muted); }
+    .section { padding:1rem 0 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1rem; }
+    .section-head h2 { margin:0; font-family:'Fraunces',serif; font-size:clamp(2rem,4vw,3.2rem); letter-spacing:-.04em; }
+    .section-head p { margin:0; color:var(--muted); line-height:1.7; max-width:44rem; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .card { padding:1.2rem; border-radius:var(--radius-sm); background:var(--panel); border:1px solid rgba(255,255,255,.10); box-shadow:0 20px 60px rgba(0,0,0,.2); }
+    .card h3 { margin:0 0 .6rem; font-size:1.06rem; }
+    .card p { margin:0; color:var(--muted); line-height:1.7; }
+    .card-top { display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:.8rem; }
+    .pill { display:inline-flex; align-items:center; gap:.35rem; padding:.38rem .68rem; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); font-size:.76rem; }
+    .pill::before { content:''; width:.45rem; height:.45rem; border-radius:99px; background:var(--accent3); }
+    .stack { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1rem; }
+    .tag { padding:.45rem .72rem; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); color:var(--text); font-size:.85rem; }
+    .timeline { display:grid; gap:.95rem; }
+    .timeline-item { display:grid; grid-template-columns:110px 1fr; gap:1rem; align-items:start; }
+    .timeline-year { color:var(--accent); font-size:.9rem; letter-spacing:.06em; font-weight:700; }
+    .timeline-body { padding-bottom:.95rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .timeline-item:last-child .timeline-body { border-bottom:0; padding-bottom:0; }
+    .meta { display:flex; justify-content:space-between; gap:1rem; margin-top:1rem; color:var(--muted); font-size:.92rem; }
+    .cta { margin:1rem 0 4rem; padding:1.4rem; background:linear-gradient(135deg, rgba(126,168,255,.12), rgba(123,219,164,.1)); border:1px solid rgba(255,255,255,.12); }
+    .cta-inner { display:flex; justify-content:space-between; gap:1rem; align-items:center; }
+    .cta h3 { margin:0 0 .35rem; font-family:'Fraunces',serif; font-size:clamp(1.6rem,3vw,2.2rem); }
+    .cta p { margin:0; color:var(--muted); }
+    footer { padding:0 0 2rem; color:var(--muted); font-size:.92rem; }
+    .page-title { padding:2.6rem 0 1rem; }
+    .page-title h1 { margin:0; font-size:clamp(2.2rem, 5vw, 4rem); }
+    .content { padding:1rem 0 3rem; }
+    @media (max-width:920px){ .hero-grid, .grid-3, .grid-2 { grid-template-columns:1fr; } .nav-inner, .section-head, .cta-inner { grid-template-columns:1fr; display:grid; } .timeline-item { grid-template-columns:1fr; } }
+    @media (max-width:640px){ .hero{padding-top:3rem} .hero-main, .mini, .card, .cta{padding:1rem} h1{font-size:clamp(2.4rem,16vw,4.2rem)} .links{gap:.85rem} .links a{font-size:.9rem} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="/"><span class="mark">PD</span><span>Pablo D V</span></a>
+        <nav class="links" aria-label="Navegacion principal">
+          <a href="/#about">Sobre mi</a>
+          <a href="/#services">Servicios</a>
+          <a href="/#work">Proyectos</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    {% block content %}{% endblock %}
+    <footer><div class="container">Pablo D V · portfolio con blog · listo para entregar.</div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Blog | Pablo D V{% endblock %}
+{% block content %}
+<main>
+  <section class="page-title">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="lead">Ideas, proceso y notas tecnicas para enseñar criterio, no solo pantallas bonitas.</p>
+    </div>
+  </section>
+  <section class="content">
+    <div class="container grid-2">
+      {% for post in posts %}
+      <article class="card">
+        <div class="card-top"><span class="pill">{{ post.published_at|date:"d M Y" }}</span><span>{{ post.cover_label }}</span></div>
+        <h3><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt }}</p>
+      </article>
+      {% empty %}
+      <article class="card"><h3>Aun no hay posts</h3><p>Cuando metas contenido en el admin, aparecerá aquí.</p></article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}

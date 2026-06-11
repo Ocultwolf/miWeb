@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} | Blog{% endblock %}
+{% block content %}
+<main>
+  <section class="page-title">
+    <div class="container">
+      <p class="eyebrow">Blog · {{ post.published_at|date:"d M Y" }}</p>
+      <h1>{{ post.title }}</h1>
+      <p class="lead">{{ post.excerpt }}</p>
+    </div>
+  </section>
+  <section class="content">
+    <div class="container">
+      <article class="card">
+        <p>{{ post.content|linebreaksbr }}</p>
+      </article>
+    </div>
+  </section>
+</main>
+{% endblock %}
