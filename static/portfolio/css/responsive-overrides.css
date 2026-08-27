@@ -1,0 +1,73 @@
+/* Responsive tune-up for the live clone */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, video, iframe, canvas, svg, picture {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+pre, code, kbd, samp {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #home {
+        padding: 5rem 1rem 3rem;
+    }
+
+    .sec,
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+        line-height: 1.04;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 7vw, 2.2rem);
+        line-height: 1.08;
+    }
+
+    .about-grid,
+    .stats-grid,
+    .tech-grid,
+    .projects-grid,
+    .services-grid,
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    nav ul {
+        width: min(82vw, 320px);
+    }
+
+    .hero-sub,
+    .about-body p {
+        font-size: 1rem;
+    }
+}

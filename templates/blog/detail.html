@@ -12,7 +12,8 @@
   <section class="content">
     <div class="container">
       <article class="card">
-        <p>{{ post.content|linebreaksbr }}</p>
+        <div class="meta" style="margin-top:0;"><span>{{ post.cover_label }}</span><span><a href="/blog/">Volver al blog</a></span></div>
+        <div class="lead" style="margin-top:1rem; margin-bottom:0;">{{ post.content|linebreaksbr }}</div>
       </article>
     </div>
   </section>

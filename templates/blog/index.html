@@ -1,19 +1,32 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block title %}Blog | Pablo D V{% endblock %}
 {% block content %}
 <main>
   <section class="page-title">
     <div class="container">
+      <p class="eyebrow">Bitácora · Pablo Dominguez Viera</p>
       <h1>Blog</h1>
-      <p class="lead">Ideas, proceso y notas tecnicas para enseñar criterio, no solo pantallas bonitas.</p>
+      <p class="lead">Diario del trabajo real: cómo estoy levantando el portfolio, qué estoy probando y por qué cada parte existe.</p>
     </div>
   </section>
   <section class="content">
+    <div class="container grid-2" style="margin-bottom:1rem;">
+      <article class="card" style="border-color:rgba(126,168,255,.22);">
+        <div class="card-top"><span class="pill">Ahora mismo</span><span>Bitácora</span></div>
+        <h3>Lo que estoy documentando</h3>
+        <p>Estoy escribiendo el trabajo tal y como ocurre: portfolio en Django, blog operativo, proyectos de Ocultwolf seleccionados, ramas limpias y una base visual seria para entregar.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="pill">Enfoque</span><span>Primera persona</span></div>
+        <h3>Por qué lo cuento así</h3>
+        <p>No quiero una web de relleno. Quiero que se vea mi criterio, mi proceso y la manera en la que convierto una referencia en algo que ya habla por mí.</p>
+      </article>
+    </div>
     <div class="container grid-2">
       {% for post in posts %}
       <article class="card">
         <div class="card-top"><span class="pill">{{ post.published_at|date:"d M Y" }}</span><span>{{ post.cover_label }}</span></div>
-        <h3><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
+        <h3><a href="{% url "blog_detail" post.slug %}">{{ post.title }}</a></h3>
         <p>{{ post.excerpt }}</p>
       </article>
       {% empty %}

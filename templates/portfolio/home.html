@@ -1,135 +1,133 @@
 {% extends 'base.html' %}
-{% block title %}Pablo D V | Portfolio{% endblock %}
+{% load static %}
+{% block title %}Pablo Dominguez Viera | Full-Stack Developer{% endblock %}
 {% block content %}
-<main id="top">
-  <section class="hero">
-    <div class="container hero-grid">
-      <article class="panel hero-main">
-        <div class="eyebrow">Portfolio 2026 · base lista para entregar</div>
-        <h1>Pablo D V</h1>
-        <p class="lead">Desarrollo experiencias web con foco en impacto visual, responsive real y entrega rapida. Reproduzco interfaces, las adapto a movil y las convierto en un portfolio que pueda vender trabajo.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#work">Ver proyectos</a>
-          <a class="btn btn-secondary" href="/blog/">Leer blog</a>
-        </div>
-      </article>
-      <aside class="side">
-        <div class="mini">
-          <p class="mini-title">Enfoque</p>
-          <p class="mini-big">Clonacion + portfolio + responsive</p>
-          <p class="mini-copy">Primero dejo el clonador fino; despues la misma base la convierto en un portfolio propio, limpio y presentable.</p>
-        </div>
-        <div class="mini">
-          <p class="mini-title">Lo que aporto</p>
-          <ul class="mini-list">
-            <li><span>UI visual</span><span>Alta fidelidad</span></li>
-            <li><span>Responsive</span><span>Movil / desktop</span></li>
-            <li><span>Entrega</span><span>Git y ramas</span></li>
-          </ul>
-        </div>
-      </aside>
+<section id="home">
+  <div class="hero-inner">
+    <p class="hero-badge">Disponible para nuevos proyectos</p>
+    <h1>Hola, soy <span class="accent">Pablo Dominguez Viera</span></h1>
+    <p class="hero-sub">
+      <strong>Full-Stack Developer.</strong> Construyo herramientas de automatizacion, analisis de datos y portfolios web reales: desde scrapers y clonadores hasta modelos de machine learning y apps Django de punta a punta.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+      <a href="https://github.com/Ocultwolf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
     </div>
-  </section>
+  </div>
+  <div class="scroll-ind">SCROLL</div>
+</section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-head">
-        <h2>Sobre mi</h2>
-        <p>Un portfolio pensado para vender criterio visual, velocidad y capacidad de adaptacion. La idea es enseñar que no solo construyo paginas: las dejo listas para trabajar.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card"><div class="card-top"><span class="pill">01 · Que hago</span></div><h3>Construccion de interfaces</h3><p>Maqueto, ajusto y termino interfaces que parecen producto real, no demo inflada.</p></article>
-        <article class="card"><div class="card-top"><span class="pill">02 · Como trabajo</span></div><h3>Git, ramas y orden</h3><p>Trabajo por pasos, registrando cambios para que nada se pierda y todo sea mantenible.</p></article>
-        <article class="card"><div class="card-top"><span class="pill">03 · Objetivo</span></div><h3>Portfolio que convierta</h3><p>Una base limpia para conseguir clientes, entrevistas o el siguiente salto profesional.</p></article>
+<section id="about" class="sec">
+  <p class="sec-eyebrow reveal">Sobre mi</p>
+  <h2 class="reveal">Quien construye esto</h2>
+  <div class="about-grid">
+    <div class="about-body slide-left">
+      <p>Soy Pablo Dominguez Viera (<strong>Ocultwolf</strong> en GitHub), desarrollador full-stack enfocado en Python: automatizacion, scraping, analisis de datos y aplicaciones web de extremo a extremo.</p>
+      <p>Este mismo portfolio nace de <strong>ClonadorProfesional</strong>, un clonador web que construi para replicar interfaces reales — y que ahora uso como base para levantar cosas propias, con mis datos y mis proyectos.</p>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-n"><span>5</span>+</div>
+          <div class="stat-l">PROYECTOS PUBLICADOS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100<span>%</span></div>
+          <div class="stat-l">PYTHON &amp; DJANGO</div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head">
-        <h2>Servicios</h2>
-        <p>Escrito para que un cliente o reclutador entienda rapido que sabe hacer Pablo D V.</p>
-      </div>
-      <div class="grid-2">
-        <article class="card"><h3>Clonacion profesional de webs</h3><p>Reproduccion visual de paginas para luego adaptarlas a portfolio, landing o web comercial sin perder calidad.</p><div class="stack"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">Responsive</span></div></article>
-        <article class="card"><h3>Portfolios y paginas de presentacion</h3><p>Construccion de portfolios personales con una narrativa clara, estetica fuerte y secciones listas para convertir.</p><div class="stack"><span class="tag">Hero</span><span class="tag">Projects</span><span class="tag">Contact</span><span class="tag">Branding</span></div></article>
-        <article class="card"><h3>Responsive & polish</h3><p>Optimizacion visual por tamaños de pantalla, control de overflow, jerarquia tipografica y adaptacion por porcentaje.</p><div class="stack"><span class="tag">Mobile-first</span><span class="tag">Tablet</span><span class="tag">Desktop</span></div></article>
-        <article class="card"><h3>Automatizacion y tooling</h3><p>Pequeñas herramientas de apoyo para acelerar clonacion, preview local y entrega ordenada sin friccion.</p><div class="stack"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Git</span><span class="tag">Automation</span></div></article>
+    <div class="slide-right">
+      <p class="tech-label">Stack</p>
+      <div class="tech-grid">
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/python-original.svg' %}" alt="Python">
+          <span class="tech-name">Python</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/javascript-original.svg' %}" alt="JavaScript">
+          <span class="tech-name">JavaScript</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/html5-original.svg' %}" alt="HTML5">
+          <span class="tech-name">HTML5</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/css3-original.svg' %}" alt="CSS3">
+          <span class="tech-name">CSS3</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/linux-original.svg' %}" alt="Linux">
+          <span class="tech-name">Linux</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/git-original.svg' %}" alt="Git">
+          <span class="tech-name">Git</span>
+        </div>
+        <div class="tech-item scale-in">
+          <img src="{% static 'portfolio/icons/docker-original.svg' %}" alt="Docker">
+          <span class="tech-name">Docker</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section-head">
-        <h2>Proyectos</h2>
-        <p>Los proyectos vienen del GitHub de Ocultwolf y ya están listos para enseñar con contexto real.</p>
+<section class="sec">
+  <p class="sec-eyebrow reveal">Actividad</p>
+  <h2 class="reveal">GitHub</h2>
+  <div class="contrib-wrap reveal">
+    <div class="contrib-header">
+      <span class="contrib-label">@Ocultwolf</span>
+      <span class="contrib-count" id="contribCount"></span>
+    </div>
+    <div class="contrib-canvas-wrap">
+      <canvas id="contribCanvas"></canvas>
+      <div class="contrib-tooltip" id="contribTooltip"></div>
+    </div>
+    <div class="contrib-legend">
+      <span class="leg-cell" style="background:rgba(88,166,255,0.06)"></span>
+      <span class="leg-cell" style="background:rgba(88,166,255,0.22)"></span>
+      <span class="leg-cell" style="background:rgba(88,166,255,0.45)"></span>
+      <span class="leg-cell" style="background:rgba(88,166,255,0.72)"></span>
+      <span class="leg-cell" style="background:rgba(88,166,255,1)"></span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects-outer">
+    <div class="projects-header">
+      <div>
+        <p class="sec-eyebrow reveal">Trabajo</p>
+        <h2 class="reveal">Proyectos</h2>
       </div>
-      <div class="grid-3">
+      <span class="drag-hint">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+        Arrastra para ver mas
+      </span>
+    </div>
+    <div class="track-wrap">
+      <div class="track" id="track">
         {% for project in projects %}
-        <article class="card">
-          <div class="card-top"><span class="pill">{{ project.order|default:forloop.counter|stringformat:"02d" }}</span><span>{% if project.link %}<a href="{{ project.link }}" target="_blank" rel="noreferrer">Open</a>{% else %}Proyecto{% endif %}</span></div>
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.short_description }}</p>
-          <div class="stack">
-            {% for tech in project.tech_list %}<span class='tag'>{{ tech }}</span>{% endfor %}
+        {% cycle 'tag-net' 'tag-ai' 'tag-hw' 'tag-med' as tagclass silent %}
+        <article class="pcard{% if project.featured %} wide{% endif %}" data-tilt>
+          <div class="card-top">
+            <span class="card-tag {{ tagclass }}">{% if project.featured %}Destacado{% else %}{{ project.tech_list.0|default:'Proyecto' }}{% endif %}</span>
           </div>
-          <div class="meta"><span>{{ project.impact }}</span><span>{% if project.featured %}Featured{% else %}Project{% endif %}</span></div>
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-desc">{{ project.short_description }}</p>
+          <div class="card-stack">
+            {% for tech in project.tech_list %}<span class="pill">{{ tech }}</span>{% endfor %}
+          </div>
+          {% if project.link %}
+          <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="card-link">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          {% endif %}
         </article>
         {% endfor %}
       </div>
     </div>
-  </section>
-
-  <section class="section" id="blog-preview">
-    <div class="container">
-      <div class="section-head">
-        <h2>Blog</h2>
-        <p>Un blog simple para mostrar proceso, ideas y artículos técnicos sin cargar el portfolio principal.</p>
-      </div>
-      <div class="grid-2">
-        {% for post in blog_posts %}
-        <article class="card">
-          <div class="card-top"><span class="pill">Blog</span><span>{{ post.published_at|date:"d M Y" }}</span></div>
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.excerpt }}</p>
-          <div class="meta"><span>{{ post.cover_label }}</span><span><a href="{% url 'blog_detail' post.slug %}">Leer más</a></span></div>
-        </article>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-head">
-        <h2>Proceso</h2>
-        <p>Corto, claro y util. Asi se entiende que trabajas con orden y no con caos.</p>
-      </div>
-      <div class="panel timeline card">
-        <div class="timeline-item"><div class="timeline-year">01</div><div class="timeline-body"><h3>Analizo la referencia</h3><p>Estilo, estructura, proporciones y comportamiento. Primero veo que hace bien la web y que merece conservarse.</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">02</div><div class="timeline-body"><h3>Construyo la base</h3><p>Maquetacion, assets, responsive y navegacion. La primera version tiene que verse bien sin pelearse con el usuario.</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">03</div><div class="timeline-body"><h3>Lo convierto en portfolio</h3><p>Se reemplaza el contenido generico por tus datos, tu historia y tus proyectos reales para que deje de ser un clon y se vuelva tuyo.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="panel cta">
-        <div class="cta-inner">
-          <div>
-            <h3>Lo usamos mañana como portfolio final</h3>
-            <p>Dejalo montado, limpio y facil de adaptar. Cuando me pases tus links y proyectos reales, lo cierro al detalle.</p>
-          </div>
-          <div class="actions">
-            <a class="btn btn-primary" href="mailto:contacto@pablodv.dev">Email</a>
-            <a class="btn btn-secondary" href="/blog/">Blog</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 {% endblock %}
