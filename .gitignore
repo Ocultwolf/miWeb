@@ -8,3 +8,7 @@ media/
 .venv_host/
 logs/
 voice/data/
+
+# Índice local de CodeGraph y copias de seguridad de la base de datos
+.codegraph/
+*.sqlite3.bak*
