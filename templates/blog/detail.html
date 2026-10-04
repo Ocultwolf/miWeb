@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load markdown_extras %}
 {% block title %}{{ post.title }} | Blog{% endblock %}
 {% block content %}
 <main>
@@ -13,7 +14,7 @@
     <div class="container">
       <article class="card">
         <div class="meta" style="margin-top:0;"><span>{{ post.cover_label }}</span><span><a href="/blog/">Volver al blog</a></span></div>
-        <div class="lead" style="margin-top:1rem; margin-bottom:0;">{{ post.content|linebreaksbr }}</div>
+        <div class="post-body">{{ post.content|markdownify }}</div>
       </article>
     </div>
   </section>

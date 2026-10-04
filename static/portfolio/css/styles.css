@@ -17,7 +17,7 @@
     --accent3: #f78166;
     --white: #e6edf3;
     --font: 'Inter', system-ui, sans-serif;
-    --display: 'Syne', sans-serif;
+    --display: 'Space Grotesk', sans-serif;
 }
 
 html {
@@ -29,7 +29,7 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font);
-    font-weight: 300;
+    font-weight: 400;
     overflow-x: hidden;
     width: 100%;
     -webkit-font-smoothing: antialiased;
@@ -68,7 +68,7 @@ nav.scrolled {
 .logo {
     font-family: var(--display);
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
     text-decoration: none;
     letter-spacing: -0.02em;
@@ -228,9 +228,9 @@ nav ul a:hover {
 h1 {
     font-family: var(--display);
     font-size: clamp(2.4rem, 6vw, 6.5rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.05;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.015em;
     color: var(--white);
     margin-bottom: 1.5rem;
     visibility: hidden;
@@ -349,9 +349,9 @@ section {
 h2 {
     font-family: var(--display);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.015em;
     line-height: 1.1;
     margin-bottom: 3rem;
 }
@@ -394,7 +394,7 @@ h2 {
 .stat-n {
     font-family: var(--display);
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
     letter-spacing: -0.02em;
     line-height: 1;
@@ -608,7 +608,7 @@ h2 {
 .card-title {
     font-family: var(--display);
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
     letter-spacing: -0.02em;
     margin-bottom: 0.6rem;
@@ -820,9 +820,9 @@ h2 {
 .blog-title {
     font-family: var(--display);
     font-size: clamp(2.4rem, 7vw, 4.5rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 0.95;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     color: var(--white);
     margin-bottom: 0.7rem;
 }
@@ -958,7 +958,7 @@ h2 {
 .exp-role {
     font-family: var(--display);
     font-size: 1.05rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
     letter-spacing: -0.02em;
     margin-bottom: 0.2rem;
@@ -1426,3 +1426,89 @@ footer {
 .copy-toast svg {
     color: var(--accent2);
 }
+
+/* Cuerpo de los artículos del blog (Markdown renderizado) */
+.post-body {
+    margin-top: 1.5rem;
+    max-width: 72ch;
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+.post-body > * + * { margin-top: 1.1rem; }
+.post-body h2 {
+    font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+    line-height: 1.25;
+    margin: 2.6rem 0 0;
+}
+.post-body h3 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 2rem 0 0;
+}
+.post-body strong { color: var(--white); }
+.post-body a { color: var(--accent); }
+.post-body ul, .post-body ol { padding-left: 1.4rem; }
+.post-body li + li { margin-top: 0.5rem; }
+.post-body li > ul, .post-body li > ol { margin-top: 0.5rem; }
+.post-body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+}
+.post-body pre {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+.post-body pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.82rem;
+    color: var(--white);
+}
+@media (max-width: 600px) {
+    .post-body { font-size: 0.98rem; }
+    .post-body pre { padding: 0.85rem; margin-left: -0.25rem; margin-right: -0.25rem; }
+}
+.card .post-body p,
+.card .post-body li {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: none;
+}
+.card .post-body p { margin: 1.1rem 0 0; }
+.card .post-body h2 + p, .card .post-body h3 + p { margin-top: 0.75rem; }
+.card .post-body pre,
+.card .post-body pre code {
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+.card .post-body pre { margin: 1.25rem 0; }
+.card .post-body pre { scrollbar-color: rgba(255, 255, 255, 0.18) transparent; scrollbar-width: thin; }
+.card .post-body pre::-webkit-scrollbar { height: 8px; }
+.card .post-body pre::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 4px; }
+.card .post-body table {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.92rem;
+}
+.card .post-body th, .card .post-body td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+}
+.card .post-body th { color: var(--white); background: rgba(255, 255, 255, 0.04); }

@@ -9,6 +9,7 @@ class Post(models.Model):
     cover_label = models.CharField(max_length=80, blank=True)
     published_at = models.DateTimeField()
     published = models.BooleanField(default=True)
+    source_key = models.CharField(max_length=160, unique=True, null=True, blank=True)
 
     class Meta:
         ordering = ['-published_at']

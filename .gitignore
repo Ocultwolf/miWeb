@@ -6,3 +6,5 @@ __pycache__/
 staticfiles/
 media/
 .venv_host/
+logs/
+voice/data/
