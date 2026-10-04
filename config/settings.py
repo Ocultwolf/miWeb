@@ -19,7 +19,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'portfolio.middleware.CookieLanguageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,14 +58,13 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = []
 
 LANGUAGE_CODE = 'en'
-# Inglés por defecto para todo el mundo; el español solo se activa si el visitante lo elige
-# (portfolio.middleware.CookieLanguageMiddleware ignora el idioma del navegador a propósito).
+# Inglés por defecto para todo el mundo: con i18n_patterns(prefix_default_language=False) las URLs sin
+# prefijo siempre son inglés, sin mirar el idioma del navegador; el español vive bajo /es/.
 LANGUAGES = [
     ('en', 'English'),
     ('es', 'Español'),
 ]
 LOCALE_PATHS = [BASE_DIR / 'locale']
-LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365
 TIME_ZONE = 'Europe/Madrid'
 USE_I18N = True
 USE_TZ = True

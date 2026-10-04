@@ -1,4 +1,5 @@
 from django import template
+from django.urls import translate_url
 from django.utils import translation
 
 register = template.Library()
@@ -13,3 +14,9 @@ def localized(obj, field):
         if value:
             return value
     return getattr(obj, field, "")
+
+
+@register.simple_tag(takes_context=True)
+def lang_url(context, lang):
+    """URL de la página actual en otro idioma (/blog/x/ <-> /es/blog/x/)."""
+    return translate_url(context["request"].path, lang)

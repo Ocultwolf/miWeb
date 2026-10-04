@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static i18n i18n_extras %}
 <!doctype html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -46,13 +46,11 @@
       <li><a href="{% url 'home' %}#projects">{% translate "Projects" %}</a></li>
       <li><a href="{% url 'blog_index' %}">Blog</a></li>
     </ul>
-    <form class="lang-switch" action="{% url 'set_language' %}" method="post" aria-label="{% translate 'Language' %}">
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{{ request.get_full_path }}">
-      <button type="submit" name="language" value="en" lang="en"{% if LANGUAGE_CODE == 'en' %} class="active" aria-current="true"{% endif %}>EN</button>
+    <div class="lang-switch" role="group" aria-label="{% translate 'Language' %}">
+      <a href="{% lang_url 'en' %}" hreflang="en" lang="en"{% if LANGUAGE_CODE == 'en' %} class="active" aria-current="true"{% endif %}>EN</a>
       <span aria-hidden="true">/</span>
-      <button type="submit" name="language" value="es" lang="es"{% if LANGUAGE_CODE == 'es' %} class="active" aria-current="true"{% endif %}>ES</button>
-    </form>
+      <a href="{% lang_url 'es' %}" hreflang="es" lang="es"{% if LANGUAGE_CODE == 'es' %} class="active" aria-current="true"{% endif %}>ES</a>
+    </div>
   </nav>
 
   {% block content %}{% endblock %}

@@ -1523,24 +1523,25 @@ nav ul { margin-left: auto; }
     font-size: 0.72rem;
     color: var(--muted);
 }
-.lang-switch button {
+.lang-switch a {
     background: none;
     border: 1px solid transparent;
     border-radius: 6px;
     padding: 0.2rem 0.45rem;
     font: inherit;
+    text-decoration: none;
     letter-spacing: 0.06em;
     color: var(--muted);
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
 }
-.lang-switch button:hover { color: var(--white); }
-.lang-switch button.active {
+.lang-switch a:hover { color: var(--white); }
+.lang-switch a.active {
     color: var(--white);
     border-color: var(--border);
     background: rgba(255, 255, 255, 0.04);
 }
-.lang-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lang-switch a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 900px) {
     .lang-switch { order: 1; margin-left: auto; margin-right: 1rem; }
     .nav-toggle { order: 2; }
