@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
-{% load markdown_extras %}
-{% block title %}{{ post.title }} | Blog{% endblock %}
+{% load i18n markdown_extras i18n_extras %}
+{% block title %}{{ post|localized:"title" }} | Blog{% endblock %}
 {% block content %}
 <main>
   <section class="page-title">
     <div class="container">
       <p class="eyebrow">Blog · {{ post.published_at|date:"d M Y" }}</p>
-      <h1>{{ post.title }}</h1>
-      <p class="lead">{{ post.excerpt }}</p>
+      <h1>{{ post|localized:"title" }}</h1>
+      <p class="lead">{{ post|localized:"excerpt" }}</p>
     </div>
   </section>
   <section class="content">
     <div class="container">
       <article class="card">
-        <div class="meta" style="margin-top:0;"><span>{{ post.cover_label }}</span><span><a href="/blog/">Volver al blog</a></span></div>
-        <div class="post-body">{{ post.content|markdownify }}</div>
+        <div class="meta" style="margin-top:0;"><span>{{ post|localized:"cover_label" }}</span><span><a href="{% url 'blog_index' %}">{% translate "Back to blog" %}</a></span></div>
+        <div class="post-body">{{ post|localized:"content"|markdownify }}</div>
       </article>
     </div>
   </section>

@@ -1,24 +1,25 @@
 {% extends "base.html" %}
+{% load i18n i18n_extras %}
 {% block title %}Blog | Pablo D V{% endblock %}
 {% block content %}
 <main>
   <section class="page-title">
     <div class="container">
-      <p class="eyebrow">Bitácora · Pablo Dominguez Viera</p>
+      <p class="eyebrow">{% translate "Technical blog · Pablo Dominguez Viera" %}</p>
       <h1>Blog</h1>
-      <p class="lead">Diario del trabajo real: cómo estoy levantando el portfolio, qué estoy probando y por qué cada parte existe.</p>
+      <p class="lead">{% translate "Technical chapters from real projects: autonomous agents, a real-time voice assistant and trading bots. What I built, what broke and what I learned, with the code and the numbers." %}</p>
     </div>
   </section>
   <section class="content">
     <div class="container grid-2">
       {% for post in posts %}
       <article class="card">
-        <div class="card-top"><span class="pill">{{ post.published_at|date:"d M Y" }}</span><span>{{ post.cover_label }}</span></div>
-        <h3><a href="{% url "blog_detail" post.slug %}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt }}</p>
+        <div class="card-top"><span class="pill">{{ post.published_at|date:"d M Y" }}</span><span>{{ post|localized:"cover_label" }}</span></div>
+        <h3><a href="{% url "blog_detail" post.slug %}">{{ post|localized:"title" }}</a></h3>
+        <p>{{ post|localized:"excerpt" }}</p>
       </article>
       {% empty %}
-      <article class="card"><h3>Aun no hay posts</h3><p>Cuando metas contenido en el admin, aparecerá aquí.</p></article>
+      <article class="card"><h3>{% translate "No posts yet" %}</h3><p>{% translate "New chapters will show up here." %}</p></article>
       {% endfor %}
     </div>
   </section>

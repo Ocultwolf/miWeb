@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 17:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: templates/base.html:40
+msgid "Open menu"
+msgstr "Abrir menú"
+
+#: templates/base.html:44 templates/base.html:75
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/base.html:45 templates/base.html:76
+#: templates/portfolio/home.html:22
+msgid "About"
+msgstr "Sobre mí"
+
+#: templates/base.html:46 templates/base.html:77
+#: templates/portfolio/home.html:122
+msgid "Projects"
+msgstr "Proyectos"
+
+#: templates/base.html:49
+msgid "Language"
+msgstr "Idioma"
+
+#: templates/base.html:62
+msgid "Let's talk about your <span class=\"accent\">next project</span>"
+msgstr "Hablemos de tu <span class=\"accent\">próximo proyecto</span>"
+
+#: templates/base.html:81
+msgid "© 2026 Pablo Dominguez Viera. Built with Django, HTML and CSS."
+msgstr "© 2026 Pablo Dominguez Viera. Hecho con Django, HTML y CSS."
+
+#: templates/blog/detail.html:16
+msgid "Back to blog"
+msgstr "Volver al blog"
+
+#: templates/blog/index.html:8
+msgid "Technical blog · Pablo Dominguez Viera"
+msgstr "Blog técnico · Pablo Dominguez Viera"
+
+#: templates/blog/index.html:10
+msgid ""
+"Technical chapters from real projects: autonomous agents, a real-time voice "
+"assistant and trading bots. What I built, what broke and what I learned, "
+"with the code and the numbers."
+msgstr ""
+"Capítulos técnicos sacados de proyectos reales: agentes autónomos, un "
+"asistente de voz en tiempo real y bots de trading. Qué construí, qué falló y"
+" qué aprendí, con el código y las cifras."
+
+#: templates/blog/index.html:22
+msgid "No posts yet"
+msgstr "Todavía no hay artículos"
+
+#: templates/blog/index.html:22
+msgid "New chapters will show up here."
+msgstr "Los nuevos capítulos aparecerán aquí."
+
+#: templates/portfolio/home.html:7
+msgid "Available for new projects"
+msgstr "Disponible para nuevos proyectos"
+
+#: templates/portfolio/home.html:8
+msgid "Hi, I'm <span class=\"accent\">Pablo Dominguez Viera</span>"
+msgstr "Hola, soy <span class=\"accent\">Pablo Dominguez Viera</span>"
+
+#: templates/portfolio/home.html:10
+msgid ""
+"<strong>Full-Stack Developer.</strong> I build automation tools, data "
+"analysis and real-world web portfolios: from scrapers and cloners to machine"
+" learning models and end-to-end Django apps."
+msgstr ""
+"<strong>Full-Stack Developer.</strong> Construyo herramientas de "
+"automatización, análisis de datos y portfolios web reales: desde scrapers y "
+"clonadores hasta modelos de machine learning y apps Django de punta a punta."
+
+#: templates/portfolio/home.html:13
+msgid "View projects"
+msgstr "Ver proyectos"
+
+#: templates/portfolio/home.html:23
+msgid "Who builds this"
+msgstr "Quién construye esto"
+
+#: templates/portfolio/home.html:26
+msgid ""
+"I'm Pablo Dominguez Viera (<strong>Ocultwolf</strong> on GitHub), a Python "
+"developer focused on automation, backend systems and agent architectures."
+msgstr ""
+"Soy Pablo Dominguez Viera (<strong>Ocultwolf</strong> en GitHub), "
+"desarrollador Python enfocado en automatización, sistemas backend y "
+"arquitecturas de agentes."
+
+#: templates/portfolio/home.html:27
+msgid ""
+"My flagship project is <strong>JARVIS P.D.</strong>, a multi-agent system "
+"where agents propose and deterministic services validate and materialize, "
+"with every phase audited before moving on. This very portfolio grew out of "
+"<strong>ClonadorProfesional</strong>, a web cloner I built to replicate real"
+" interfaces."
+msgstr ""
+"Mi proyecto de referencia es <strong>JARVIS P.D.</strong>, un sistema "
+"multiagente donde los agentes proponen y servicios deterministas validan y "
+"materializan, con cada fase auditada antes de avanzar. Este mismo portfolio "
+"nace de <strong>ClonadorProfesional</strong>, un clonador web que construí "
+"para replicar interfaces reales."
+
+#: templates/portfolio/home.html:31
+msgid "PUBLISHED PROJECTS"
+msgstr "PROYECTOS PUBLICADOS"
+
+#: templates/portfolio/home.html:96
+msgid "Activity"
+msgstr "Actividad"
+
+#: templates/portfolio/home.html:121
+msgid "Work"
+msgstr "Trabajo"
+
+#: templates/portfolio/home.html:126
+msgid "Drag to see more"
+msgstr "Arrastra para ver más"
+
+#: templates/portfolio/home.html:135
+msgid "Featured"
+msgstr "Destacado"
+
+#: templates/portfolio/home.html:135
+msgid "Project"
+msgstr "Proyecto"
+
+#: templates/portfolio/home.html:144
+msgid "View project"
+msgstr "Ver proyecto"

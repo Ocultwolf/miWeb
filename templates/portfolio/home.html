@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n i18n_extras %}{% get_current_language as LANGUAGE_CODE %}
 {% block title %}Pablo Dominguez Viera | Full-Stack Developer{% endblock %}
 {% block content %}
 <section id="home">
   <div class="hero-inner">
-    <p class="hero-badge">Disponible para nuevos proyectos</p>
-    <h1>Hola, soy <span class="accent">Pablo Dominguez Viera</span></h1>
+    <p class="hero-badge">{% translate "Available for new projects" %}</p>
+    <h1>{% blocktranslate %}Hi, I'm <span class="accent">Pablo Dominguez Viera</span>{% endblocktranslate %}</h1>
     <p class="hero-sub">
-      <strong>Full-Stack Developer.</strong> Construyo herramientas de automatizacion, analisis de datos y portfolios web reales: desde scrapers y clonadores hasta modelos de machine learning y apps Django de punta a punta.
+      {% blocktranslate %}<strong>Full-Stack Developer.</strong> I build automation tools, data analysis and real-world web portfolios: from scrapers and cloners to machine learning models and end-to-end Django apps.{% endblocktranslate %}
     </p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+      <a href="#projects" class="btn btn-primary">{% translate "View projects" %}</a>
       <a href="https://github.com/Ocultwolf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
-      <a href="{% static 'portfolio/cv/Pablo_Dominguez_CV.pdf' %}?v=2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Descargar CV</a>
+      {% if LANGUAGE_CODE == 'es' %}<a href="{% static 'portfolio/cv/Pablo_Dominguez_CV_ES.pdf' %}?v=3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" hreflang="es">Descargar CV</a>{% else %}<a href="{% static 'portfolio/cv/Pablo_Dominguez_CV.pdf' %}?v=3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" hreflang="en">Download CV</a>{% endif %}
     </div>
   </div>
   <div class="scroll-ind">SCROLL</div>
 </section>
 
 <section id="about" class="sec">
-  <p class="sec-eyebrow reveal">Sobre mi</p>
-  <h2 class="reveal">Quien construye esto</h2>
+  <p class="sec-eyebrow reveal">{% translate "About" %}</p>
+  <h2 class="reveal">{% translate "Who builds this" %}</h2>
   <div class="about-grid">
     <div class="about-body slide-left">
-      <p>Soy Pablo Dominguez Viera (<strong>Ocultwolf</strong> en GitHub), desarrollador Python enfocado en automatizacion, sistemas backend y arquitecturas de agentes.</p>
-      <p>Mi proyecto de referencia es <strong>JARVIS P.D.</strong>, un sistema multiagente donde los agentes proponen y servicios deterministas validan y materializan, con cada fase auditada antes de avanzar. Este mismo portfolio nace de <strong>ClonadorProfesional</strong>, un clonador web que construi para replicar interfaces reales.</p>
+      <p>{% blocktranslate %}I'm Pablo Dominguez Viera (<strong>Ocultwolf</strong> on GitHub), a Python developer focused on automation, backend systems and agent architectures.{% endblocktranslate %}</p>
+      <p>{% blocktranslate %}My flagship project is <strong>JARVIS P.D.</strong>, a multi-agent system where agents propose and deterministic services validate and materialize, with every phase audited before moving on. This very portfolio grew out of <strong>ClonadorProfesional</strong>, a web cloner I built to replicate real interfaces.{% endblocktranslate %}</p>
       <div class="stats-grid">
         <div class="stat">
           <div class="stat-n"><span>{{ projects.count }}</span>+</div>
-          <div class="stat-l">PROYECTOS PUBLICADOS</div>
+          <div class="stat-l">{% translate "PUBLISHED PROJECTS" %}</div>
         </div>
         <div class="stat">
           <div class="stat-n">100<span>%</span></div>
@@ -93,7 +93,7 @@
 </section>
 
 <section class="sec">
-  <p class="sec-eyebrow reveal">Actividad</p>
+  <p class="sec-eyebrow reveal">{% translate "Activity" %}</p>
   <h2 class="reveal">GitHub</h2>
   <div class="contrib-wrap reveal">
     <div class="contrib-header">
@@ -118,12 +118,12 @@
   <div class="projects-outer">
     <div class="projects-header">
       <div>
-        <p class="sec-eyebrow reveal">Trabajo</p>
-        <h2 class="reveal">Proyectos</h2>
+        <p class="sec-eyebrow reveal">{% translate "Work" %}</p>
+        <h2 class="reveal">{% translate "Projects" %}</h2>
       </div>
       <span class="drag-hint">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
-        Arrastra para ver mas
+        {% translate "Drag to see more" %}
       </span>
     </div>
     <div class="track-wrap">
@@ -132,16 +132,16 @@
         {% cycle 'tag-net' 'tag-ai' 'tag-hw' 'tag-med' as tagclass silent %}
         <article class="pcard{% if project.featured %} wide{% endif %}" data-tilt>
           <div class="card-top">
-            <span class="card-tag {{ tagclass }}">{% if project.featured %}Destacado{% else %}{{ project.tech_list.0|default:'Proyecto' }}{% endif %}</span>
+            <span class="card-tag {{ tagclass }}">{% if project.featured %}{% translate "Featured" %}{% else %}{% firstof project.tech_list.0 _("Project") %}{% endif %}</span>
           </div>
-          <h3 class="card-title">{{ project.title }}</h3>
-          <p class="card-desc">{{ project.short_description }}</p>
+          <h3 class="card-title">{{ project|localized:"title" }}</h3>
+          <p class="card-desc">{{ project|localized:"short_description" }}</p>
           <div class="card-stack">
             {% for tech in project.tech_list %}<span class="pill">{{ tech }}</span>{% endfor %}
           </div>
           {% if project.link %}
           <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="card-link">
-            Ver proyecto
+            {% translate "View project" %}
             <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           {% endif %}

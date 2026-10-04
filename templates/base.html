@@ -1,6 +1,7 @@
-{% load static %}
+{% load static i18n %}
 <!doctype html>
-<html lang="es">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,22 +37,29 @@
 <body>
   <nav id="nav">
     <a href="{% url 'home' %}" class="logo">Pablo<span>.dev</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+    <button class="nav-toggle" id="navToggle" aria-label="{% translate 'Open menu' %}">
       <span></span><span></span><span></span>
     </button>
     <ul id="navMenu">
-      <li><a href="{% url 'home' %}#home">Inicio</a></li>
-      <li><a href="{% url 'home' %}#about">Sobre mi</a></li>
-      <li><a href="{% url 'home' %}#projects">Proyectos</a></li>
+      <li><a href="{% url 'home' %}#home">{% translate "Home" %}</a></li>
+      <li><a href="{% url 'home' %}#about">{% translate "About" %}</a></li>
+      <li><a href="{% url 'home' %}#projects">{% translate "Projects" %}</a></li>
       <li><a href="{% url 'blog_index' %}">Blog</a></li>
     </ul>
+    <form class="lang-switch" action="{% url 'set_language' %}" method="post" aria-label="{% translate 'Language' %}">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button type="submit" name="language" value="en" lang="en"{% if LANGUAGE_CODE == 'en' %} class="active" aria-current="true"{% endif %}>EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="submit" name="language" value="es" lang="es"{% if LANGUAGE_CODE == 'es' %} class="active" aria-current="true"{% endif %}>ES</button>
+    </form>
   </nav>
 
   {% block content %}{% endblock %}
 
   <footer>
     <div class="foot-cta">
-      <h2>Hablemos de tu <span class="accent">proximo proyecto</span></h2>
+      <h2>{% blocktranslate %}Let's talk about your <span class="accent">next project</span>{% endblocktranslate %}</h2>
       <div class="hero-actions" style="justify-content:flex-start;">
         <a href="mailto:pablodominguezviera@gmail.com" class="btn-icon email-btn copy-email-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
@@ -64,13 +72,13 @@
       </div>
     </div>
     <div class="foot-links">
-      <a href="{% url 'home' %}#home">Inicio</a>
-      <a href="{% url 'home' %}#about">Sobre mi</a>
-      <a href="{% url 'home' %}#projects">Proyectos</a>
+      <a href="{% url 'home' %}#home">{% translate "Home" %}</a>
+      <a href="{% url 'home' %}#about">{% translate "About" %}</a>
+      <a href="{% url 'home' %}#projects">{% translate "Projects" %}</a>
       <a href="{% url 'blog_index' %}">Blog</a>
     </div>
   </footer>
-  <div class="copy">© 2026 Pablo Dominguez Viera. Hecho con Django, HTML y CSS.</div>
+  <div class="copy">{% translate "© 2026 Pablo Dominguez Viera. Built with Django, HTML and CSS." %}</div>
 
   <script src="{% static 'portfolio/js/gsap.min.js' %}"></script>
   <script src="{% static 'portfolio/js/ScrollTrigger.min.js' %}"></script>

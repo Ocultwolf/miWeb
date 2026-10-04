@@ -19,6 +19,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'portfolio.middleware.CookieLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -36,6 +37,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
+                'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'portfolio.context_processors.blog_posts',
@@ -55,7 +57,15 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = []
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'en'
+# Inglés por defecto para todo el mundo; el español solo se activa si el visitante lo elige
+# (portfolio.middleware.CookieLanguageMiddleware ignora el idioma del navegador a propósito).
+LANGUAGES = [
+    ('en', 'English'),
+    ('es', 'Español'),
+]
+LOCALE_PATHS = [BASE_DIR / 'locale']
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365
 TIME_ZONE = 'Europe/Madrid'
 USE_I18N = True
 USE_TZ = True

@@ -12,7 +12,7 @@ from django.core.management.base import BaseCommand
 from blog.models import Post
 from blog.sensitive import find_sensitive, redact
 
-FIELDS = ("title", "excerpt", "content")
+FIELDS = ("title", "excerpt", "content", "title_en", "excerpt_en", "content_en", "cover_label_en")
 
 
 class Command(BaseCommand):
