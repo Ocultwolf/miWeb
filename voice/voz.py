@@ -91,7 +91,7 @@ def aplicar_voz(texto: str, model: str = "sonnet", timeout: int = 600) -> str:
     )
     try:
         proc = subprocess.run(
-            [CLAUDE_BIN, "-p", "--output-format", "json", "--model", model],
+            [CLAUDE_BIN, "-p", "--output-format", "json", "--model", model, "--effort", "low"],
             input=prompt, capture_output=True, text=True, timeout=timeout,
         )
     except (subprocess.TimeoutExpired, FileNotFoundError) as exc:

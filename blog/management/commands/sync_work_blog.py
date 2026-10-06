@@ -268,7 +268,7 @@ Evidencia del dia (fragmentos de sesiones de trabajo, resumidos):
 def call_claude(prompt: str) -> dict | None:
     try:
         proc = subprocess.run(
-            [CLAUDE_BIN, "-p", prompt, "--output-format", "json", "--model", "sonnet"],
+            [CLAUDE_BIN, "-p", prompt, "--output-format", "json", "--model", "sonnet", "--effort", "low"],
             capture_output=True,
             text=True,
             timeout=180,
