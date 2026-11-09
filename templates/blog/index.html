@@ -2,24 +2,24 @@
 {% load i18n i18n_extras %}
 {% block title %}Blog | Pablo D V{% endblock %}
 {% block content %}
-<main>
-  <section class="page-title">
-    <div class="container">
-      <p class="eyebrow">{% translate "Technical blog · Pablo Dominguez Viera" %}</p>
-      <h1>Blog</h1>
-      <p class="lead">{% translate "Technical chapters from real projects: autonomous agents, a real-time voice assistant and trading bots. What I built, what broke and what I learned, with the code and the numbers." %}</p>
-    </div>
-  </section>
-  <section class="content">
-    <div class="container grid-2">
+<main class="page">
+  <header class="page-title wrap">
+    <p class="label">{% translate "Technical blog · Pablo Dominguez Viera" %}</p>
+    <h1>Blog</h1>
+    <p class="lead">{% translate "Technical chapters from real projects: autonomous agents, a real-time voice assistant and trading bots. What I built, what broke and what I learned, with the code and the numbers." %}</p>
+  </header>
+  <section class="wrap">
+    <div class="post-list">
       {% for post in posts %}
-      <article class="card">
-        <div class="card-top"><span class="pill">{{ post.published_at|date:"d M Y" }}</span><span>{{ post|localized:"cover_label" }}</span></div>
-        <h3><a href="{% url "blog_detail" post.slug %}">{{ post|localized:"title" }}</a></h3>
-        <p>{{ post|localized:"excerpt" }}</p>
+      <article class="post-row">
+        <p class="post-meta"><time datetime="{{ post.published_at|date:'Y-m-d' }}">{{ post.published_at|date:"Y-m-d" }}</time><span>{{ post|localized:"cover_label" }}</span></p>
+        <div>
+          <h2><a href="{% url "blog_detail" post.slug %}">{{ post|localized:"title" }}</a></h2>
+          <p>{{ post|localized:"excerpt" }}</p>
+        </div>
       </article>
       {% empty %}
-      <article class="card"><h3>{% translate "No posts yet" %}</h3><p>{% translate "New chapters will show up here." %}</p></article>
+      <article class="post-row"><p class="post-meta"></p><div><h2>{% translate "No posts yet" %}</h2><p>{% translate "New chapters will show up here." %}</p></div></article>
       {% endfor %}
     </div>
   </section>

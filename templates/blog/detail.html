@@ -2,21 +2,15 @@
 {% load i18n markdown_extras i18n_extras %}
 {% block title %}{{ post|localized:"title" }} | Blog{% endblock %}
 {% block content %}
-<main>
-  <section class="page-title">
-    <div class="container">
-      <p class="eyebrow">Blog · {{ post.published_at|date:"d M Y" }}</p>
+<main class="page">
+  <article class="wrap article">
+    <header class="page-title">
+      <p class="label"><a href="{% url 'blog_index' %}">Blog</a> · <time datetime="{{ post.published_at|date:'Y-m-d' }}">{{ post.published_at|date:"Y-m-d" }}</time> · {{ post|localized:"cover_label" }}</p>
       <h1>{{ post|localized:"title" }}</h1>
       <p class="lead">{{ post|localized:"excerpt" }}</p>
-    </div>
-  </section>
-  <section class="content">
-    <div class="container">
-      <article class="card">
-        <div class="meta" style="margin-top:0;"><span>{{ post|localized:"cover_label" }}</span><span><a href="{% url 'blog_index' %}">{% translate "Back to blog" %}</a></span></div>
-        <div class="post-body">{{ post|localized:"content"|markdownify }}</div>
-      </article>
-    </div>
-  </section>
+    </header>
+    <div class="post-body">{{ post|localized:"content"|markdownify }}</div>
+    <p class="back"><a href="{% url 'blog_index' %}">← {% translate "Back to blog" %}</a></p>
+  </article>
 </main>
 {% endblock %}
