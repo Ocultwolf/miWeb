@@ -124,8 +124,11 @@ def translate_meta(post: Post) -> dict:
         {"title": post.title, "excerpt": post.excerpt, "cover_label": post.cover_label}, ensure_ascii=False
     )
     raw = _claude(META_PROMPT.format(payload=payload), timeout=300)
-    raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-    data = json.loads(raw)
+    # A veces el modelo añade texto después del JSON: se lee solo el primer objeto.
+    start = raw.find("{")
+    if start < 0:
+        raise CommandError(f"no hay JSON en la respuesta: {raw[:200]}")
+    data, _ = json.JSONDecoder().raw_decode(raw[start:])
     if set(data) != {"title", "excerpt", "cover_label"}:
         raise CommandError(f"metadatos incompletos: {data}")
     return data

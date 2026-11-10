@@ -26,6 +26,10 @@ HERE = Path(__file__).resolve().parent
 CLAUDE_BIN = shutil.which("claude") or str(Path.home() / ".local" / "bin" / "claude")
 CODE_BLOCK = re.compile(r"```.*?```", re.DOTALL)
 PLACEHOLDER = "[[BLOQUE_CODIGO_{}]]"
+# Notas del modelo sobre su propio trabajo que a veces añade al final.
+NOTA_FINAL = re.compile(
+    r"(?i)\b(solo reescribí|retoqué algunas|no (he )?verifi\w+ (nada|que)|lo dejé casi intacto|sin tocar archivos)"
+)
 
 PROMPT = """Eres el editor personal de Pablo. Tu único trabajo es reescribir el TEXTO de abajo para que \
 suene exactamente como lo escribiría él, siguiendo su perfil de voz y sus ejemplos reales.
@@ -101,6 +105,9 @@ def aplicar_voz(texto: str, model: str = "sonnet", timeout: int = 600) -> str:
     salida = json.loads(proc.stdout).get("result", "").strip()
     if not salida:
         raise RuntimeError("claude devolvió una respuesta vacía")
+    parrafos = salida.split("\n\n")
+    if len(parrafos) > 1 and NOTA_FINAL.search(parrafos[-1]):
+        salida = "\n\n".join(parrafos[:-1]).rstrip()
     return _restore_code(salida, bloques)
 
 
