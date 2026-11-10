@@ -144,17 +144,6 @@ if (track && !isMobile() && !reduceMotion) {
   });
 }
 
-// Inclinación sutil de las tarjetas (escritorio)
-if (!isMobile() && !reduceMotion) {
-  document.querySelectorAll('[data-tilt]').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 5}deg)`;
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  });
-}
 
 addEventListener('load', () => ScrollTrigger.refresh());
 

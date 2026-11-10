@@ -5,12 +5,13 @@
 <main class="page">
   <article class="wrap article">
     <header class="page-title">
-      <p class="label"><a href="{% url 'blog_index' %}">Blog</a> · <time datetime="{{ post.published_at|date:'Y-m-d' }}">{{ post.published_at|date:"Y-m-d" }}</time> · {{ post|localized:"cover_label" }}</p>
+      <p class="crumb"><a href="{% url 'blog_index' %}">Blog</a></p>
+      <p class="post-meta"><time datetime="{{ post.published_at|date:'Y-m-d' }}">{{ post.published_at|date:"Y-m-d" }}</time><span>{{ post|localized:"cover_label" }}</span></p>
       <h1>{{ post|localized:"title" }}</h1>
       <p class="lead">{{ post|localized:"excerpt" }}</p>
     </header>
     <div class="post-body">{{ post|localized:"content"|markdownify }}</div>
-    <p class="back"><a href="{% url 'blog_index' %}">← {% translate "Back to blog" %}</a></p>
+    <p class="back"><a href="{% url 'blog_index' %}">{% translate "Back to blog" %}</a></p>
   </article>
 </main>
 {% endblock %}

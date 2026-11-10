@@ -23,7 +23,7 @@
         </div>
       </div>
       <ol class="cine-steps">
-        <li class="cine-step" data-step="1"><span class="step-n">01</span>{% if LANGUAGE_CODE == 'es' %}Empieza con una voz. <em>Neon</em> escucha, piensa y contesta en tiempo real.{% else %}It starts with a voice. <em>Neon</em> listens, thinks and answers in real time.{% endif %}</li>
+        <li class="cine-step" data-step="1"><span class="step-n">01</span>{% if LANGUAGE_CODE == 'es' %}Empieza con una voz. Neon escucha, piensa y contesta en tiempo real.{% else %}It starts with a voice. Neon listens, thinks and answers in real time.{% endif %}</li>
         <li class="cine-step" data-step="2"><span class="step-n">02</span>{% if LANGUAGE_CODE == 'es' %}La voz se convierte en trabajo: los agentes proponen, los servicios validan y cada fase se audita.{% else %}The voice turns into work: agents propose, services validate, every phase is audited.{% endif %}</li>
         <li class="cine-step" data-step="3"><span class="step-n">03</span>{% if LANGUAGE_CODE == 'es' %}Y cada noche, el sistema escribe lo que aprendió. Ya van {{ n_posts }} capítulos.{% else %}And every night, the system writes down what it learned. {{ n_posts }} chapters so far.{% endif %}</li>
       </ol>
@@ -33,8 +33,7 @@
 </section>
 
 <section id="about" class="sec wrap">
-  <p class="label reveal">{% translate "About" %}</p>
-  <h2 class="reveal">{% translate "Who builds this" %}</h2>
+  <h2>{% translate "Who builds this" %}</h2>
   <div class="about-grid">
     <div class="about-body">
       {% if LANGUAGE_CODE == 'es' %}
@@ -44,19 +43,9 @@
       <p>I'm Pablo Dominguez Viera (<strong>Ocultwolf</strong> on GitHub). I build agent systems in Python and run them on my own machines.</p>
       <p><strong>Neon</strong> is a real-time voice assistant I talk to every day. <strong>JARVIS P.D.</strong> is a multi-agent system where agents propose and deterministic services validate and materialize, with every phase audited before moving on. And this site's blog writes itself: every night it turns my agent sessions into technical chapters, translates them and checks them for secrets before publishing.</p>
       {% endif %}
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-n">{{ projects.count|add:1 }}</div>
-          <div class="stat-l">{% translate "PUBLISHED PROJECTS" %}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">{{ n_posts }}</div>
-          <div class="stat-l">{% if LANGUAGE_CODE == 'es' %}CAPÍTULOS TÉCNICOS{% else %}TECHNICAL CHAPTERS{% endif %}</div>
-        </div>
-      </div>
     </div>
     <div>
-      <p class="label">Stack</p>
+      <h3 class="stack-title">Stack</h3>
       <ul class="tech-grid">
         <li class="tech-item"><img src="{% static 'portfolio/icons/python-original.svg' %}" alt="" width="28" height="28"><span>Python</span></li>
         <li class="tech-item"><img src="{% static 'portfolio/icons/claude-original.svg' %}" alt="" width="28" height="28"><span>Claude</span></li>
@@ -77,8 +66,7 @@
 
 {# Solo se muestra si la API de GitHub devuelve datos reales (lo decide main.js). #}
 <section id="activity" class="sec wrap" hidden>
-  <p class="label">{% translate "Activity" %}</p>
-  <h2>GitHub</h2>
+  <h2>{% if LANGUAGE_CODE == 'es' %}Actividad en GitHub{% else %}GitHub activity{% endif %}</h2>
   <div class="contrib-wrap">
     <div class="contrib-header">
       <a class="contrib-label" href="https://github.com/Ocultwolf" target="_blank" rel="noopener noreferrer">@Ocultwolf</a>
@@ -95,23 +83,22 @@
   <div class="projects-outer">
     <div class="wrap projects-header">
       <div>
-        <p class="label">{% translate "Work" %}</p>
         <h2>{% translate "Projects" %}</h2>
       </div>
-      <span class="drag-hint" aria-hidden="true">{% translate "Drag to see more" %} →</span>
+      <span class="drag-hint" aria-hidden="true">{% translate "Drag to see more" %}</span>
     </div>
     <div class="track-wrap">
       <div class="track" id="track">
-        <article class="pcard wide" data-tilt>
+        <article class="pcard wide">
           <div class="card-top"><span class="card-tag">{% translate "Featured" %}</span><span class="card-state">● {% if LANGUAGE_CODE == 'es' %}en uso{% else %}in use{% endif %}</span></div>
           <h3 class="card-title">Neon</h3>
           <p class="card-desc">{% if LANGUAGE_CODE == 'es' %}Asistente de voz en tiempo real: bucle de voz con Pipecat, reconocimiento con Soniox, voz con Fish Audio y una memoria por capas que admite lo que ha olvidado.{% else %}Real-time voice assistant: a Pipecat voice loop, Soniox speech recognition, Fish Audio speech and a layered memory that admits what it has forgotten.{% endif %}</p>
           <p class="card-flow" aria-label="{% if LANGUAGE_CODE == 'es' %}Flujo de Neon{% else %}Neon pipeline{% endif %}"><span>mic</span>→<span>STT</span>→<span>LLM</span>→<span>TTS</span></p>
           <div class="card-stack"><span class="pill">Python</span><span class="pill">Pipecat</span><span class="pill">Soniox</span><span class="pill">Fish Audio</span></div>
-          <a href="{% url 'blog_detail' 'neon-asistente-de-voz-en-tiempo-real' %}" class="card-link">{% if LANGUAGE_CODE == 'es' %}Leer cómo está hecho{% else %}Read how it's built{% endif %} →</a>
+          <a href="{% url 'blog_detail' 'neon-asistente-de-voz-en-tiempo-real' %}" class="card-link">{% if LANGUAGE_CODE == 'es' %}Leer cómo está hecho{% else %}Read how it's built{% endif %}</a>
         </article>
         {% for project in projects %}
-        <article class="pcard{% if project.featured %} wide{% endif %}" data-tilt>
+        <article class="pcard{% if project.featured %} wide{% endif %}">
           <div class="card-top">
             <span class="card-tag">{% if project.featured %}{% translate "Featured" %}{% else %}{% firstof project.tech_list.0 _("Project") %}{% endif %}</span>
           </div>
@@ -133,10 +120,9 @@
 <section id="blog" class="sec wrap">
   <div class="sec-head">
     <div>
-      <p class="label">Blog</p>
       <h2>{% if LANGUAGE_CODE == 'es' %}Últimos capítulos{% else %}Latest chapters{% endif %}</h2>
     </div>
-    <a class="more" href="{% url 'blog_index' %}">{% if LANGUAGE_CODE == 'es' %}Ver los {{ n_posts }}{% else %}All {{ n_posts }}{% endif %} →</a>
+    <a class="more" href="{% url 'blog_index' %}">{% if LANGUAGE_CODE == 'es' %}Ver los {{ n_posts }} capítulos{% else %}See all {{ n_posts }} chapters{% endif %}</a>
   </div>
   {% latest_posts 4 as recent %}
   <div class="post-grid">
